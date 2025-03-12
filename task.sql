@@ -20,15 +20,15 @@ CREATE TABLE Customers (
 
 CREATE TABLE Orders (
     ID INT AUTO_INCREMENT PRIMARY KEY,
-    CustomerID INT,
+    CustomerID INT NULL,  -- Зроблено nullable
     Date DATE,
     FOREIGN KEY (CustomerID) REFERENCES Customers(ID) ON DELETE SET NULL
 );
 
 CREATE TABLE OrderItems (
     ID INT AUTO_INCREMENT PRIMARY KEY,
-    OrderID INT,
-    ProductID INT,
+    OrderID INT NULL,  -- Зроблено nullable
+    ProductID INT NULL,  -- Зроблено nullable
     FOREIGN KEY (OrderID) REFERENCES Orders(ID) ON DELETE SET NULL,
     FOREIGN KEY (ProductID) REFERENCES Products(ID) ON DELETE SET NULL
 );
